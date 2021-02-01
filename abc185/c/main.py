@@ -1,4 +1,3 @@
+import math
 l = int(input())
-
-ave, mod = divmod(l, 12)
-print(ave, mod)
+print(math.comb(l - 1, 11))
