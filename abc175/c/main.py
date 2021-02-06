@@ -1,27 +1,19 @@
 x, k, d = map(int, input().split())
 
 cnt = k
-for i in range(k):
-    cnt -= 1
-    if x - d < 0:
-        break
-    if x != 0:
-        x -= d
+x = abs(x)
 
-    if x == 0:
-        if cnt %2 != 0:
-            print(d)
-        else:
-            print(x)
-        exit()
-    # print(x, cnt)
-    if cnt == 0:
-        print(x)
-        exit()
+cnt = x // d
+if cnt > k:
+    print(x - d * k)
+    exit()
 
-print(cnt)
-if cnt %2 != 0:
+x -= cnt * d
+k -= cnt
+
+# print(x, k, d)
+
+if k %2 == 0:
     print(x)
 else:
-    print(d)
-exit()
+    print(abs(x-d))
