@@ -1,17 +1,15 @@
-import math
+from math import ceil, floor, sqrt
+from decimal import Decimal
 
-x, y, r = map(float, input().split())
-
-def cf(a, r):
-    return math.ceil(a - r), math.floor(a + r)
+x, y, r = map(Decimal, input().split())
 
 cnt = 0
 
-start, end = cf(x, r)
+start, end = ceil(x - r), floor(x + r)
 
 for i in range(start, end + 1):
-    p = math.sqrt((r ** 2) - ((x - i) ** 2))
-    bottom, top = cf(y, p)
+    p = ((r ** 2) - ((x - i) ** 2)).sqrt()
+    bottom, top = ceil(y - p), floor(y + p)
     cnt += top + 1 - bottom
 
 print(cnt)
