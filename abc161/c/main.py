@@ -1,16 +1,14 @@
 n, k = map(int, input().split())
 
+result, n = divmod(n, k)
+
 if n % k == 0:
     print(0)
     exit()
 
-if n <= abs(n - k):
-    print(n)
+if n < k :
+    if n < abs(n - k):
+        print(n)
+    else:
+        print(abs(n - k))
     exit()
-
-
-diff = abs(n - k)
-if n % k >= diff:
-    print(n % diff)
-else:
-    print(n % k)

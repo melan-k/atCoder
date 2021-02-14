@@ -1,35 +1,28 @@
 n, m = map(int, input().split())
-submissions = {}
-passed = []
+ac = set()
+wa = {}
 
 if m == 0:
     print(0, 0)
     exit()
 
-cnt = 0
 for i in range(m):
-    if n == len(passed):
-        break
-
     p, s = input().split()
     p = int(p)
-
-    if not p in submissions:
-        submissions[p] = 0
+    if p in ac:
+        continue
 
     if s == 'AC':
-        if not p in passed:
-            passed.append(p)
-            cnt += 1
+        ac.add(p)
     else:
-        # WAが出た時
-        if p in passed:
-            continue
+        if not p in wa:
+            wa[p] = 1
+        else:
+            wa[p] += 1
 
-        if p in submissions:
-            submissions[p] += 1
+total = 0
+for key, value in wa.items():
+    if key in ac:
+        total += value
 
-penalty = 0
-for p in passed:
-    penalty += submissions[p]
-print(len(passed), penalty)
+print(len(ac), total)
