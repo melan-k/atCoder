@@ -1,4 +1,3 @@
-import itertools
 x = int(input())
 if x < 100:
     print(0)
@@ -7,9 +6,15 @@ if x >= 2000:
     print(1)
     exit()
 
-for combination in itertools.combinations_with_replacement(range(20), 6):
-    price = combination[0]*100 + combination[1]*101 + combination[2]*102 + combination[3]*103 + combination[4]*104 + combination[5]*105
-    if x == price:
-        print(1)
-        exit()
+for i in range(20):
+    for j in range(20):
+        for k in range(20):
+            for l in range(20):
+                for m in range(20):
+                    for n in range(20):
+                        price = 100 * i + 101 * j + 102 * k + 103 * l + 104 * m + 105 * n
+                        if price == x:
+                            print(1)
+                            exit()
+
 print(0)
