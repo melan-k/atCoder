@@ -16,4 +16,4 @@ def get_divisors(num, except_self=False):
 
 from math import gcd
 a, b, k = map(int, input().split())
-print(get_divisors(gcd(a, b))[-k + 1])
+print(get_divisors(gcd(a, b), True)[-k])
