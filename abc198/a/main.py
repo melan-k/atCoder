@@ -1,1 +1,1 @@
-n = int(input())
+print(int(input()) - 1)
