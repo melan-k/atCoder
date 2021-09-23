@@ -5,5 +5,5 @@ for i in range(k):
     n //= 200
   else:
     n = int(str(n) + '200')
-
+  
 print(n)
