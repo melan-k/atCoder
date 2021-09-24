@@ -1,8 +1,8 @@
 s = input()
-for i in range(10):
-    print(s[::-1])
-    if s == s[::-1]:
-        print('Yes')
-        exit()
-    s = s + '0'
-print('No')
+while len(s) >= 1 and s[-1] == '0':
+  s = s[:len(s)-1]
+
+if s == s[::-1]:
+  print('Yes')
+else:
+  print('No')
